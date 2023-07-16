@@ -13,7 +13,7 @@ interface ClockHandProps {
   radius: number;
 }
 
-const ClockHand = React.forwardRef<PIXI.Graphics, ClockHandProps>((props) => {
+const ClockHand: React.FC<ClockHandProps> = (props) => {
   const draw = useCallback(
     (g: PIXI.Graphics) => {
       const { x, y, width, height, color, radius, rotation } = props;
@@ -37,6 +37,6 @@ const ClockHand = React.forwardRef<PIXI.Graphics, ClockHandProps>((props) => {
   return (
     <Graphics draw={draw} filters={props.filters} x={props.x} y={props.y} />
   );
-});
+};
 
 export default ClockHand;

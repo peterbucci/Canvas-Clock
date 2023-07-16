@@ -1,4 +1,4 @@
-import { useCallback, forwardRef } from "react";
+import { useCallback } from "react";
 import { Graphics } from "@pixi/react";
 import * as PIXI from "pixi.js";
 
@@ -11,7 +11,7 @@ interface WristBandProps {
   filters?: Array<PIXI.Filter>;
 }
 
-const WristBand = forwardRef<PIXI.Graphics, WristBandProps>((props) => {
+const WristBand: React.FC<WristBandProps> = (props) => {
   const draw = useCallback(
     (g: PIXI.Graphics) => {
       g.clear();
@@ -23,6 +23,6 @@ const WristBand = forwardRef<PIXI.Graphics, WristBandProps>((props) => {
   );
 
   return <Graphics draw={draw} filters={props.filters} />;
-});
+};
 
 export default WristBand;
