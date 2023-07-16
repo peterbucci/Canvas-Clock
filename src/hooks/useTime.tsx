@@ -7,6 +7,7 @@ const degToRad = (deg: number) => {
 
 const useTime = () => {
   const [time, setTime] = useState({
+    timestamp: "00:00:00",
     hoursAngle: 0,
     minutesAngle: 0,
     secondsAngle: 0,
@@ -17,6 +18,7 @@ const useTime = () => {
     let hours = date.getHours();
     let minutes = date.getMinutes();
     let seconds = date.getSeconds();
+    const ampm = hours >= 12 ? "PM" : "AM";
 
     // convert everything to degrees
     let hoursAngle = (hours % 12) * 30 + minutes * 0.5 - 180;
@@ -29,6 +31,12 @@ const useTime = () => {
     secondsAngle = degToRad(secondsAngle);
 
     setTime({
+      timestamp: date.toLocaleString("en-US", {
+        hour: "numeric",
+        minute: "2-digit",
+        second: "2-digit",
+        hour12: true,
+      }),
       hoursAngle,
       minutesAngle,
       secondsAngle,

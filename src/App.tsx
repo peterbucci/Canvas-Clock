@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Stage, AppConsumer } from "@pixi/react";
+import WebFont from "webfontloader";
 import Clock from "./Clock";
 
 const App: React.FC = () => {
+  const [fontLoaded, setFontLoaded] = useState(false);
   const [size, setSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
@@ -16,7 +18,14 @@ const App: React.FC = () => {
     return () => window.removeEventListener("resize", updateDimensions);
   }, []);
 
-  return (
+  WebFont.load({
+    google: {
+      families: ["Orbitron"],
+    },
+    active: () => setFontLoaded(true),
+  });
+
+  return fontLoaded ? (
     <Stage
       width={size.width}
       height={size.height}
@@ -34,6 +43,8 @@ const App: React.FC = () => {
         }}
       </AppConsumer>
     </Stage>
+  ) : (
+    <></>
   );
 };
 
