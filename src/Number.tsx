@@ -5,9 +5,10 @@ interface NumberProps {
   x: number;
   y: number;
   text: string;
+  fontSize: number;
 }
 
-const Number: React.FC<NumberProps> = ({ x, y, text }) => {
+const Number: React.FC<NumberProps> = ({ x, y, text, fontSize }) => {
   return (
     <Text
       text={text}
@@ -18,7 +19,7 @@ const Number: React.FC<NumberProps> = ({ x, y, text }) => {
         new PIXI.TextStyle({
           align: "center",
           fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-          fontSize: 48,
+          fontSize: fontSize,
           fontWeight: "bold",
           fill: "#ffffff",
           stroke: "#000000",

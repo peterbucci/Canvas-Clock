@@ -10,6 +10,7 @@ import useTime from "./hooks/useTime";
 import Markers from "./Markers";
 import ClockFace from "./ClockFace";
 import DigitalClock from "./DigitalClock";
+import Numbers from "./Numbers";
 
 interface ClockProps {
   app: PIXI.Application;
@@ -45,26 +46,7 @@ const Clock: React.FC<ClockProps> = ({ app, size }) => {
           text="CRUMPET"
         />
         <DigitalClock size={size} timestamp={timestamp} />
-        <Number
-          x={size.width / 2}
-          y={size.height / 2 - radius + 34 + 15}
-          text="12"
-        />
-        <Number
-          x={size.width / 2 + radius - 34 - 15}
-          y={size.height / 2}
-          text="3"
-        />
-        <Number
-          x={size.width / 2}
-          y={size.height / 2 + radius - 34 - 15}
-          text="6"
-        />
-        <Number
-          x={size.width / 2 - radius + 34 + 15}
-          y={size.height / 2}
-          text="9"
-        />
+        <Numbers size={size} radius={radius} />
         <Markers app={app} radius={radius} borderSize={borderSize} />
         <ClockHand
           x={size.width / 2}

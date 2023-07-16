@@ -9,8 +9,8 @@ interface MarkerProps {
 }
 
 const Markers: React.FC<MarkerProps> = ({ app, radius, borderSize }) => {
-  const markerWidth = 2;
-  const markerHeight = 7;
+  const markerWidth = Math.max(1, radius * 0.01);
+  const markerHeight = Math.max(2, radius * 0.03);
   const markerColor = 0x000000;
 
   const markers = Array.from({ length: 60 }).map((_, i) => {
