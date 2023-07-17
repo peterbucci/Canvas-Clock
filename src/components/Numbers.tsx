@@ -6,7 +6,7 @@ interface NumbersProps {
 }
 
 const Numbers: React.FC<NumbersProps> = ({ size, radius }) => {
-  const fontSize = Math.max(12, radius * 0.18);
+  const fontSize = radius * 0.18;
 
   return (
     <>

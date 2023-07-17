@@ -9,3 +9,8 @@ export const V_POSITION = 0;
 // Clock Face Constants
 export const BORDER_SIZE_MIN = 2;
 export const BORDER_FACTOR = 0.05;
+// Logo Constants
+export const LOGO_ANCHOR = 0.5;
+export const LOGO_H_ALIGN_DIV = 2;
+export const LOGO_V_ALIGN_DIV = 2;
+export const LOGO_V_OFFSET_DIV = 1.8;

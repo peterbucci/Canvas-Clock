@@ -32,11 +32,7 @@ const Clock: React.FC<ClockProps> = ({ app, size }) => {
     <Container>
       <WristBand size={size} radius={radius} />
       <ClockFace size={size} radius={radius} borderSize={borderSize}>
-        <Logo
-          x={size.width / 2}
-          y={size.height / 2 - radius / 1.8}
-          text="CRUMPET"
-        />
+        <Logo radius={radius} size={size} text="CRUMPET" />
         <DigitalClock size={size} timestamp={timestamp} />
         <Numbers size={size} radius={radius} />
         <Markers app={app} radius={radius} borderSize={borderSize} />
