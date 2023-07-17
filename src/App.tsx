@@ -1,6 +1,6 @@
 import React from "react";
 import { Stage, AppConsumer } from "@pixi/react";
-import Clock from "./Clock";
+import Clock from "./components/Clock";
 import useWindowDimensions from "./hooks/useWindowDimensions";
 import useWebfont from "./hooks/useWebFont";
 

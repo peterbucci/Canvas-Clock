@@ -9,7 +9,7 @@ import Numbers from "./Numbers";
 import WristBand from "./WristBand";
 import Logo from "./Logo";
 import DigitalClock from "./DigitalClock";
-import useTime from "./hooks/useTime";
+import useTime from "../hooks/useTime";
 
 interface ClockProps {
   app: PIXI.Application;
