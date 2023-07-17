@@ -10,6 +10,12 @@ import WristBand from "./WristBand";
 import Logo from "./Logo";
 import DigitalClock from "./DigitalClock";
 import useTime from "../hooks/useTime";
+import {
+  RADIUS_DIVISOR,
+  RADIUS_MARGIN,
+  BORDER_SIZE_MIN,
+  BORDER_FACTOR,
+} from "../constants";
 
 interface ClockProps {
   app: PIXI.Application;
@@ -18,26 +24,13 @@ interface ClockProps {
 
 const Clock: React.FC<ClockProps> = ({ app, size }) => {
   const { hoursAngle, minutesAngle, secondsAngle, timestamp } = useTime();
-  const radius = Math.min(size.width, size.height) / 2 - 100;
-  const borderSize = Math.max(2, radius * 0.05);
+  const radius =
+    Math.min(size.width, size.height) / RADIUS_DIVISOR - RADIUS_MARGIN;
+  const borderSize = Math.max(BORDER_SIZE_MIN, radius * BORDER_FACTOR);
 
   return (
     <Container>
-      <WristBand
-        x={size.width / 2 - radius / 2}
-        y={0}
-        width={radius}
-        height={size.height}
-        color={0x2e1d06}
-        filters={[
-          new DropShadowFilter({
-            offset: { x: 0, y: 0 },
-            resolution: 5,
-            alpha: 0.5,
-            blur: 1,
-          }),
-        ]}
-      />
+      <WristBand size={size} radius={radius} />
       <ClockFace size={size} radius={radius} borderSize={borderSize}>
         <Logo
           x={size.width / 2}
