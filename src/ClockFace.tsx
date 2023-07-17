@@ -6,6 +6,7 @@ import * as PIXI from "pixi.js";
 interface ClockFaceProps {
   size: { width: number; height: number };
   radius: number;
+  borderSize: number;
   children: React.ReactNode;
 }
 
@@ -49,13 +50,18 @@ const Circle: React.FC<CircleProps> = ({
   );
 };
 
-const ClockFace: React.FC<ClockFaceProps> = ({ size, radius, children }) => {
+const ClockFace: React.FC<ClockFaceProps> = ({
+  size,
+  radius,
+  borderSize,
+  children,
+}) => {
   return (
     <>
       <Circle
         x={size.width / 2}
         y={size.height / 2}
-        radius={radius - 10}
+        radius={radius - borderSize}
         color={0xffffff}
       />
       <Circle
@@ -71,7 +77,7 @@ const ClockFace: React.FC<ClockFaceProps> = ({ size, radius, children }) => {
             blur: 1,
           }),
         ]}
-        hole={[0, 0, radius - 10]}
+        hole={[0, 0, radius - borderSize]}
       />
       {children}
       <Circle
